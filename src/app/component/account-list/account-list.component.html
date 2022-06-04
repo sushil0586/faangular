@@ -1,0 +1,39 @@
+<app-routeconfig></app-routeconfig>
+<div class="text-center">
+  <h3>Account List</h3>
+</div>
+<div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Drcr Effect</th>
+        <th scope="col">Account Head Sr</th>
+        <th scope="col">Balance Type</th>
+        <th scope="col">Code</th>
+        <th scope="col">Details Inbs</th>
+        <th scope="col">Description</th>
+        <th scope="col">Group</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let account of accountHeadList">
+        <td>{{account.id}}</td>
+        <td>{{account.name}}</td>
+        <td>{{account.drcreffect}}</td>
+        <td>{{account.accountHeadName}}</td>
+        <td>{{account.balanceType}}</td>
+        <td>{{account.code}}</td>
+        <td>{{account.detilsinbs}}</td>
+        <td>{{account.description}}</td>
+        <td>{{getGroupName(account.group)}}</td>
+        <td>
+          <a class="btn btn-primary me-2" (click)="deleteAccount(account.id)">Delete</a>
+          <a class="btn btn-primary" (click)="editAccount(account.id)">Edit</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

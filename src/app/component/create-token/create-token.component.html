@@ -1,0 +1,23 @@
+<div class="row col-6 p-2 m-2">
+    <h1>CREATE TOKEN {{token}}</h1>
+</div>
+<div class="row ms-4 ps-4">
+    <div class="col-12 pb-4">
+        <label class="text-bold">User Name</label>
+        <input type="text" class="form-control w-25" placeholder="Enter User Name" [(ngModel)]="userName" required>
+    </div>
+    <div class="col-12 pb-4">
+        <label class="text-bold">Email</label>
+        <input type="text" class="form-control w-25" placeholder="Enter Email" [(ngModel)]="email" required>
+    </div>
+    <div class="col-12 pb-4">
+        <label class="text-bold">Password</label>
+        <input type="password" class="form-control w-25" placeholder="Enter Password" [(ngModel)]="password" required>
+    </div>
+</div>
+<div class="row ms-4 ps-4">
+    <div class="col-4">
+        <input type="button" class="btn btn-primary w-25 me-4" (click)="setValue()" value="Create">
+        <input type="button" class="btn btn-primary w-25" (click)="clearValue()" value="Reset">
+    </div>
+</div>
