@@ -31,6 +31,7 @@ export class UserService {
     return this.httpClient.get<Array<UserEntitiy>>(url, this.httpOptions).pipe(
       tap(_ => this.commonService.log('fetched user entities')),
       catchError(this.commonService.handleError<Array<UserEntitiy>>('getUserEntities'))
+      
     );
   }
 
