@@ -1,2 +1,11 @@
 <app-routeconfig></app-routeconfig>
-<h1>Home</h1>
+<div *ngIf="userentity">
+    <h1>User Information</h1>
+    <h2>UserName:{{userentity.username}}</h2>
+    <h2>Email:{{userentity.email}}</h2>
+    <h1>Entity Information</h1>
+    <div *ngFor="let entity of userentity.uentity">
+        <h2>Entity Id:{{entity.id}}</h2>
+        <h2>Entity Name:{{entity.entityName}}</h2>
+    </div>
+</div>

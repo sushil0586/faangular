@@ -18,7 +18,7 @@ export class AddAccountComponent implements OnInit {
   public description!: string;
   public drcreffect: string = "Yes";
   public accountheadsr: number = 0;
-  public group: string = "Balace_sheet";
+  public group: string = "Balance_sheet";
   public accountHeadDropDownModelList: Array<AccountHeadDropDownModel> = [];
   public accountHeadList: Array<AccountHead> = [];
 

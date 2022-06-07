@@ -33,12 +33,14 @@ export class AccountListComponent implements OnInit {
   }
 
   public deleteAccount(id: number | undefined) {
-    this.accountService.deleteAccount(id)
-      .subscribe(data => {
-        this.getAccountHeadList();
-        this.notificationService.showSuccess(`Account ${id} deleted`, "Success");
-      },
-        error => { this.notificationService.showError(error.message, "Error"); });
+    if (confirm("Are you sure to delete " + id)) {
+      this.accountService.deleteAccount(id)
+        .subscribe(data => {
+          this.getAccountHeadList();
+          this.notificationService.showSuccess(`Account ${id} deleted`, "Success");
+        },
+          error => { this.notificationService.showError(error.message, "Error"); });
+    }
   }
 
   public editAccount(id: number | undefined): void {
@@ -47,10 +49,10 @@ export class AccountListComponent implements OnInit {
 
   public getGroupName(value: string): string {
     let groupModel: GroupModel[] = [
-      { name: "Balance Sheet", value: "Balace_sheet" },
+      { name: "Balance Sheet", value: "Balance_sheet" },
       { name: "Profit Loss", value: "P/l" }
     ]
     return groupModel.filter(item => item.value === value)[0].name;
   }
-  
+
 }

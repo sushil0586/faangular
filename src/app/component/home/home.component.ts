@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserEntitiy } from 'src/app/model/user';
+import { UserService } from 'src/app/service/user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public userentity!:UserEntitiy;
+  
+  constructor(private userService:UserService) { }
 
   ngOnInit(): void {
+    this.getUserEntityData();
   }
 
+  public getUserEntityData() {
+    this.userService.getUserEntityData()
+      .subscribe(data => {
+        this.userentity = data[0];
+        return this.userentity;
+      });
+  }
 }

@@ -41,4 +41,7 @@ export class ConfigService {
     return this.getConfigData().ApiUrl+'entity/entity';
   }
 
+  public get getAuthUserUrl():string {
+    return this.getConfigData().ApiUrl+'auth/user';
+  }
 }
