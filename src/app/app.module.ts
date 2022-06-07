@@ -16,6 +16,9 @@ import { RouteconfigComponent } from './component/routeconfig/routeconfig.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccountUpdateComponent } from './component/account-update/account-update.component';
 
+import { AddProductComponent } from './component/add-product/add-product/add-product.component';
+import { AddEntityComponent } from './component/add-entity/add-entity/add-entity.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,10 @@ import { AccountUpdateComponent } from './component/account-update/account-updat
     UnauthorizeComponent,
     HomeComponent,
     RouteconfigComponent,
-    AccountUpdateComponent
+    AccountUpdateComponent,
+ 
+    AddProductComponent,
+       AddEntityComponent
   ],
   imports: [
     BrowserModule,

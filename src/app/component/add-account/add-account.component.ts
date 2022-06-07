@@ -10,7 +10,7 @@ import { NotificationService } from 'src/app/service/notification/notification.s
 })
 
 export class AddAccountComponent implements OnInit {
-  public entityId: number =1;
+  public entityId: number =38;
   public name!: string;
   public code!: number;
   public detilsinbs: string = "Yes";

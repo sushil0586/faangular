@@ -5,6 +5,8 @@ import { AccountListComponent } from './component/account-list/account-list.comp
 import { AccountUpdateComponent } from './component/account-update/account-update.component';
 import { AccountComponent } from './component/account/account.component';
 import { AddAccountComponent } from './component/add-account/add-account.component';
+import { AddProductComponent } from './component/add-product/add-product/add-product.component';
+import { AddEntityComponent } from './component/add-entity/add-entity/add-entity.component';
 import { CreateTokenComponent } from './component/create-token/create-token.component';
 import { HomeComponent } from './component/home/home.component';
 import { UnauthorizeComponent } from './component/unauthorize/unauthorize.component';
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'updateaccount/:accountId', component: AccountUpdateComponent, canActivate: [AuthGuard] },
   { path: 'account-list', component: AccountListComponent, canActivate: [AuthGuard] },
   { path: 'add-account', component: AddAccountComponent, canActivate: [AuthGuard] },
+  { path: 'add-product', component: AddProductComponent, canActivate: [AuthGuard] },
+  { path: 'add-entity', component: AddEntityComponent, canActivate: [AuthGuard] },
   { path: 'account', component: AccountComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'create-token', component: CreateTokenComponent },

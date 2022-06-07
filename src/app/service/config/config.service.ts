@@ -22,10 +22,23 @@ export class ConfigService {
   }
 
   public get getAccountHeadListUrl():string {
-    return this.getConfigData().ApiUrl+'financial/accounthead?entity=1';
+    return this.getConfigData().ApiUrl+'financial/accounthead?entity=38';
   }
 
   public get getAccountHeadUrl():string {
     return this.getConfigData().ApiUrl+'financial/accounthead';
   }
+
+  public get getProductListUrl():string {
+    return this.getConfigData().ApiUrl+'inventory/product?entity=38';
+  }
+
+  public get getProductUrl():string {
+    return this.getConfigData().ApiUrl+'inventory/product';
+  }
+
+  public get getEntityUrl():string {
+    return this.getConfigData().ApiUrl+'entity/entity';
+  }
+
 }
