@@ -1,0 +1,79 @@
+<app-routeconfig></app-routeconfig>
+<div class="row text-center">
+    <h1>Add Stock </h1>
+</div>
+
+
+<div class="row ms-4 ps-4">
+    <div class="col-4 pb-4">
+        <label class="text-bold">Product Name</label>
+        <input type="text" class="form-control w-75" placeholder="Product Name"  [(ngModel)]="productname" maxlength="50">
+    </div>
+    <div class="col-4">
+        <label class="text-bold">Product Description:</label>
+        <input type="text" class="form-control w-75" placeholder="Product Description:" [(ngModel)]="productdesc"  maxlength="10">
+    </div>
+    <div class="col-4 pb-4">
+        <label class="text-bold">Opening Stock Qty</label>
+        <input type="text" class="form-control w-75" placeholder="Opening Stock Qty:" [(ngModel)]="openingstockqty"  maxlength="50">
+    </div>
+    <div class="col-4">
+        <label class="text-bold">Box/Pcs</label>
+        <input type="text" class="form-control w-75" placeholder="Box/Pcs" [(ngModel)]="openingstockboxqty"  maxlength="10">
+    </div>
+    <div class="col-4 pb-4">
+        <label class="text-bold">Opening Stock Value</label>
+        <input type="text" class="form-control w-75" placeholder="Opening Stock Value"  [(ngModel)]="openingstockvalue"  maxlength="50">
+    </div>
+    <div class="col-4">
+        <label class="text-bold">Product Category</label>
+        <input type="text" class="form-control w-75" placeholder="Product Category" [(ngModel)]="productcategory"   maxlength="10">
+    </div>
+    <div class="col-4 pb-4">
+        <label class="text-bold">Purchase Rate</label>
+        <input type="text" class="form-control w-75" placeholder="Purchase Rate"  [(ngModel)]="purchaserate" maxlength="50">
+    </div>
+    <div class="col-4">
+        <label class="text-bold">Less %</label>
+        <input type="text" class="form-control w-75" placeholder="Less %" [(ngModel)]="prlesspercentage"  maxlength="10">
+    </div>
+    <div class="col-4 pb-4">
+        <label class="text-bold">M.R.P</label>
+        <input type="text" class="form-control w-75" placeholder="M.R.P" [(ngModel)]="mrp"  maxlength="50">
+    </div>
+    <div class="col-4">
+        <label class="text-bold">Less %</label>
+        <input type="text" class="form-control w-75" placeholder="Less %"  [(ngModel)]="mrpless"   maxlength="10">
+    </div>
+    <div class="col-4 pb-4">
+        <label class="text-bold">Sale Price:</label>
+        <input type="text" class="form-control w-75" placeholder="Sales Price" [(ngModel)]="salesprice"   maxlength="50">
+    </div>
+    <div class="col-4">
+        <label class="text-bold">Total GST</label>
+        <input type="text" class="form-control w-75" placeholder="Total Gst"  [(ngModel)]="totalgst"   maxlength="10">
+    </div>
+    <div class="col-4 pb-4">
+        <label class="text-bold">C GST @</label>
+        <input type="text" class="form-control w-75" placeholder="C GST @:"  [(ngModel)]="cgst"  maxlength="50">
+    </div>
+    <div class="col-4">
+        <label class="text-bold">GST Cess</label>
+        <input type="text" class="form-control w-75" placeholder="GST Cess"  [(ngModel)]="cgstcess"  maxlength="10">
+    </div>
+    <div class="col-4 pb-4">
+        <label class="text-bold">S GST @</label>
+        <input type="text" class="form-control w-75" placeholder="S GST @:"  [(ngModel)]="sgst"  maxlength="50">
+    </div>
+    <div class="col-4">
+        <label class="text-bold">Cess Qty</label>
+        <input type="text" class="form-control w-75" placeholder="Cess Qty" [(ngModel)]="sgstcess"  maxlength="10">
+    </div>
+</div>
+<div class="row">
+    <div class="col-8"></div>
+    <div class="col-4 ps-2">
+        <input type="button" class="btn btn-primary w-25 me-4"  (click)="addproduct()" value="Save">
+        <input type="button" class="btn btn-primary w-25"  (click)="reset()"  value="Reset">
+    </div>
+</div>
