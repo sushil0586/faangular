@@ -1,36 +1,42 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AccountHead, AccountHeadDropDownModel, AccountHeadModel } from 'src/app/model/accounthead';
 import { AccountService } from 'src/app/service/account/account.service';
 import { NotificationService } from 'src/app/service/notification/notification.service';
 
 @Component({
-  selector: 'app-add-account',
-  templateUrl: './add-account.component.html',
-  styleUrls: ['./add-account.component.scss']
+  selector: 'app-accounthead-update',
+  templateUrl: './accounthead-update.component.html',
+  styleUrls: ['./accounthead-update.component.scss']
 })
 
-export class AddAccountComponent implements OnInit {
-  public entityId: number =38;
+export class AccountHeadUpdateComponent implements OnInit {
+  public accountId!: number;
   public name!: string;
   public code!: number;
-  public detilsinbs: string = "Yes";
-  public balanceType: string = "Credit";
+  public detilsinbs!: string;
+  public balanceType!: string;
+  public drcreffect!: string;
+  public accountheadsr!: number;
   public description!: string;
-  public drcreffect: string = "Yes";
-  public accountheadsr: number = 0;
-  public group: string = "Balance_sheet";
+  public entityId!: number;
+  public group!: string;
   public accountHeadDropDownModelList: Array<AccountHeadDropDownModel> = [];
   public accountHeadList: Array<AccountHead> = [];
 
-  constructor(private accountService: AccountService, private notificationService: NotificationService) { }
-
-  ngOnInit(): void {
-    this.bindAccountHeadDropDownModelList();
+  constructor(private route: ActivatedRoute,
+    private accountService: AccountService, 
+    private notificationService : NotificationService) {
   }
 
-  addAccount() {
+  ngOnInit(): void {
+    this.accountId = this.route.snapshot.params['accountId'];
+    this.getAccountByAccountId(this.accountId);
+  }
+
+  updateAccount() {
     if(!this.name){
-      this.notificationService.showError("Please enter name", "Error");
+      this.notificationService.showError("Please enter namessh", "Error");
       return;
     }
 
@@ -60,28 +66,38 @@ export class AddAccountComponent implements OnInit {
     }
 
     const accountHeadModel: AccountHeadModel = {
-      entity: this.entityId,
-      name: this.name,
-      code: this.code,
-      detilsinbs: this.detilsinbs,
-      balanceType: this.balanceType,
-      description: this.description,
       drcreffect: this.drcreffect,
       accountheadsr: this.accountheadsr,
+      balanceType: this.balanceType,
+      code: this.code,
+      detilsinbs: this.detilsinbs,
+      entity: this.entityId,
       group: this.group,
+      name: this.name,
+      description: this.description,
     }
-
-    this.accountService.addAccount(accountHeadModel)
+    this.accountService.updateAccount(accountHeadModel,this.accountId)
       .subscribe(data =>
-        this.notificationService.showSuccess("Account Added", "Success")
+        this.notificationService.showSuccess("Account Updated", "Success")
         ,
         error => { this.notificationService.showError(error.message, "Error"); });
   }
 
-  reset(): void {
-  this.name = '';
-  let resetNumberValue!: number;
-  this.code = resetNumberValue;
+  public getAccountByAccountId(accountId:number |undefined) {
+    this.accountService.getAccountByAccountId(accountId)
+      .subscribe(data => {
+        console.log(data);
+        this.drcreffect = data.drcreffect;
+        this.accountheadsr = data.accountheadsr;
+        this.balanceType = data.balanceType;
+        this.code = data.code;
+        this.detilsinbs = data.detilsinbs;
+        this.entityId =data.entity;
+        this.group = data.group;
+        this.name = data.name;
+        this.description = data.description;
+      });
+        this.bindAccountHeadDropDownModelList();
   }
 
   bindAccountHeadDropDownModelList(): void {
@@ -97,4 +113,8 @@ export class AddAccountComponent implements OnInit {
         });
       });
   }
+
+  reset() {
+  }
+
 }

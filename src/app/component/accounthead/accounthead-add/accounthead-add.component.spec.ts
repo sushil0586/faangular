@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddEntityComponent } from './add-entity.component';
+import { AccountHeadAddComponent } from './accounthead-add.component';
 
-describe('AddEntityComponent', () => {
-  let component: AddEntityComponent;
-  let fixture: ComponentFixture<AddEntityComponent>;
+describe('AccountHeadAddComponent', () => {
+  let component: AccountHeadAddComponent;
+  let fixture: ComponentFixture<AccountHeadAddComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddEntityComponent ]
+      declarations: [ AccountHeadAddComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddEntityComponent);
+    fixture = TestBed.createComponent(AccountHeadAddComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

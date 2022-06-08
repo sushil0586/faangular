@@ -7,12 +7,12 @@ import { AccountService } from 'src/app/service/account/account.service';
 import { NotificationService } from 'src/app/service/notification/notification.service';
 
 @Component({
-  selector: 'app-account-list',
-  templateUrl: './account-list.component.html',
-  styleUrls: ['./account-list.component.scss']
+  selector: 'app-accounthead-list',
+  templateUrl: './accounthead-list.component.html',
+  styleUrls: ['./accounthead-list.component.scss']
 })
 
-export class AccountListComponent implements OnInit {
+export class AccountHeadListComponent implements OnInit {
   public accountHeadList: Array<AccountHead> = [];
 
   constructor(private accountService: AccountService,

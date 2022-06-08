@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddAccountComponent } from './add-account.component';
+import { EntityAddComponent } from './entity-add.component';
 
-describe('AddAccountComponent', () => {
-  let component: AddAccountComponent;
-  let fixture: ComponentFixture<AddAccountComponent>;
+describe('EntityAddComponent', () => {
+  let component: EntityAddComponent;
+  let fixture: ComponentFixture<EntityAddComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddAccountComponent ]
+      declarations: [ EntityAddComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddAccountComponent);
+    fixture = TestBed.createComponent(EntityAddComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -22,4 +22,5 @@ describe('AddAccountComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 });

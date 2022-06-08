@@ -1,42 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { AccountHead, AccountHeadDropDownModel, AccountHeadModel } from 'src/app/model/accounthead';
 import { AccountService } from 'src/app/service/account/account.service';
 import { NotificationService } from 'src/app/service/notification/notification.service';
 
 @Component({
-  selector: 'app-account-update',
-  templateUrl: './account-update.component.html',
-  styleUrls: ['./account-update.component.scss']
+  selector: 'app-accounthead-add',
+  templateUrl: './accounthead-add.component.html',
+  styleUrls: ['./accounthead-add.component.scss']
 })
 
-export class AccountUpdateComponent implements OnInit {
-  public accountId!: number;
+export class AccountHeadAddComponent implements OnInit {
+  public entityId: number =1;
   public name!: string;
   public code!: number;
-  public detilsinbs!: string;
-  public balanceType!: string;
-  public drcreffect!: string;
-  public accountheadsr!: number;
+  public detilsinbs: string = "Yes";
+  public balanceType: string = "Credit";
   public description!: string;
-  public entityId!: number;
-  public group!: string;
+  public drcreffect: string = "Yes";
+  public accountheadsr: number = 0;
+  public group: string = "Balance_sheet";
   public accountHeadDropDownModelList: Array<AccountHeadDropDownModel> = [];
   public accountHeadList: Array<AccountHead> = [];
 
-  constructor(private route: ActivatedRoute,
-    private accountService: AccountService, 
-    private notificationService : NotificationService) {
-  }
+  constructor(private accountService: AccountService, private notificationService: NotificationService) { }
 
   ngOnInit(): void {
-    this.accountId = this.route.snapshot.params['accountId'];
-    this.getAccountByAccountId(this.accountId);
+    this.bindAccountHeadDropDownModelList();
   }
 
-  updateAccount() {
+  addAccount() {
     if(!this.name){
-      this.notificationService.showError("Please enter namessh", "Error");
+      this.notificationService.showError("Please enter name", "Error");
       return;
     }
 
@@ -66,38 +60,28 @@ export class AccountUpdateComponent implements OnInit {
     }
 
     const accountHeadModel: AccountHeadModel = {
-      drcreffect: this.drcreffect,
-      accountheadsr: this.accountheadsr,
-      balanceType: this.balanceType,
+      entity: this.entityId,
+      name: this.name,
       code: this.code,
       detilsinbs: this.detilsinbs,
-      entity: this.entityId,
-      group: this.group,
-      name: this.name,
+      balanceType: this.balanceType,
       description: this.description,
+      drcreffect: this.drcreffect,
+      accountheadsr: this.accountheadsr,
+      group: this.group,
     }
-    this.accountService.updateAccount(accountHeadModel,this.accountId)
+
+    this.accountService.addAccount(accountHeadModel)
       .subscribe(data =>
-        this.notificationService.showSuccess("Account Updated", "Success")
+        this.notificationService.showSuccess("Account Added", "Success")
         ,
         error => { this.notificationService.showError(error.message, "Error"); });
   }
 
-  public getAccountByAccountId(accountId:number |undefined) {
-    this.accountService.getAccountByAccountId(accountId)
-      .subscribe(data => {
-        console.log(data);
-        this.drcreffect = data.drcreffect;
-        this.accountheadsr = data.accountheadsr;
-        this.balanceType = data.balanceType;
-        this.code = data.code;
-        this.detilsinbs = data.detilsinbs;
-        this.entityId =data.entity;
-        this.group = data.group;
-        this.name = data.name;
-        this.description = data.description;
-      });
-        this.bindAccountHeadDropDownModelList();
+  reset(): void {
+  this.name = '';
+  let resetNumberValue!: number;
+  this.code = resetNumberValue;
   }
 
   bindAccountHeadDropDownModelList(): void {
@@ -113,12 +97,4 @@ export class AccountUpdateComponent implements OnInit {
         });
       });
   }
-
-  reset() {
-  }
-
-}
-
-function isNumeric(code: number) {
-  throw new Error('Function not implemented.');
 }

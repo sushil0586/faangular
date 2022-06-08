@@ -22,7 +22,7 @@ export class ConfigService {
   }
 
   public get getAccountHeadListUrl():string {
-    return this.getConfigData().ApiUrl+'financial/accounthead?entity=38';
+    return this.getConfigData().ApiUrl+'financial/accounthead?entity=1';
   }
 
   public get getAccountHeadUrl():string {
@@ -30,7 +30,7 @@ export class ConfigService {
   }
 
   public get getProductListUrl():string {
-    return this.getConfigData().ApiUrl+'inventory/product?entity=38';
+    return this.getConfigData().ApiUrl+'inventory/product?entity=1';
   }
 
   public get getProductUrl():string {

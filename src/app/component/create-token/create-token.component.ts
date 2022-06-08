@@ -23,9 +23,9 @@ export class CreateTokenComponent implements OnInit {
   }
 
   setValue() {
-    this.userName = 'aditi';
-    this.email = 'aditi@gmail.com';
-    this.password = 'aditi';
+    this.userName = 'sushil';
+    this.email = 'sushil@gmail.com';
+    this.password = 'sushil';
     const user: User = { username: this.userName, email: this.email, password: this.password };
     this.tokenService.getToken(user)
       .subscribe(data => {
