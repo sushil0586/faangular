@@ -1,0 +1,487 @@
+<app-routeconfig></app-routeconfig>
+<div class="ps-4 pt-4">
+    <div class="row col-12">
+        <div class="col-5">
+            <div class="row">
+                <div class="col-1">
+                    Date
+                </div>
+                <div class="col-11">
+                    <input type="text" class="form-control form-control-sm w-50" [(ngModel)]="newDate">
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <h3>Purchase GST Goods</h3>
+        </div>
+        <div class="col-2">
+            <b>Today</b><span class="ms-2">{{ todayDate | date: 'dd-MM-yyyy EEEE'}}</span>
+        </div>
+    </div>
+    <div class="row col-12 mb-2">
+        <div class="col-5">
+            <div class="row">
+                <div class="col-1">
+                    V.No
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control form-control-sm">
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control form-control-sm w-25">
+                </div>
+            </div>
+        </div>
+        <div class="col-7"> </div>
+    </div>
+    <div class="row col-12 mb-2">
+        <div class="col-4">
+            <div class="row">
+                <div class="col-3">
+                    Supplier
+                </div>
+                <div class="col-9">
+                    <input type="text" class="form-control form-control-sm w-100" placeholder="Enter Supplier">
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <div class="col-2">
+                    Bill No.
+                </div>
+                <div class="col-10">
+                    <input type="text" class="form-control form-control-sm w-50" placeholder="Enter Bill No.">
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <div class="col-8 text-end">
+                    Tax Type
+                </div>
+                <div class="col-4 text-end">
+                    <select class="form-select form-select-sm">
+                        <option value="OutOfState">Out of State</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row col-12 mb-2">
+        <div class="col-4">
+            <div class="row">
+                <div class="col-3">
+                    City
+                </div>
+                <div class="col-9">
+                    <input type="text" class="form-control form-control-sm w-100" placeholder="Enter City">
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <div class="col-2">
+                    Bill Date
+                </div>
+                <div class="col-10">
+                    <input type="text" class="form-control form-control-sm w-50" placeholder="Enter Bill Date">
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <div class="col-8 text-end">
+                    Self Inv.#
+                </div>
+                <div class="col-4 text-end">
+                    <input type="text" class="form-control form-control-sm w-100" placeholder="Enter Self Inv.#">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row col-12 mb-2">
+        <div class="col-4">
+            <div class="row">
+                <div class="col-3">
+                    GST No.
+                </div>
+                <div class="col-9">
+                    <input type="text" class="form-control form-control-sm w-100" placeholder="Enter GST No.">
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <div class="col-2">
+                    Terms
+                </div>
+                <div class="col-5 pe-0">
+                    <select class="form-select form-select-sm w-75">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="col-5">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label ms-1" for="exampleCheck1">Show Ledger A/C</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <div class="col-8 text-end">
+                    Bill Cash
+                </div>
+                <div class="col-4 text-end">
+                    <select class="form-select form-select-sm">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row col-12 divTable">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Pcs</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Rate</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Others</th>
+                    <th scope="col">C.GST</th>
+                    <th scope="col">S.GST</th>
+                    <th scope="col">I.GST</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10007</td>
+                    <td>08 MM TMT BAR</td>
+                    <td>0</td>
+                    <td>0.850</td>
+                    <td>45300.00</td>
+                    <td>38505.00</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>6931.00</td>
+                </tr>
+                <tr>
+                    <td>10007</td>
+                    <td>08 MM TMT BAR</td>
+                    <td>0</td>
+                    <td>0.850</td>
+                    <td>45300.00</td>
+                    <td>38505.00</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>6931.00</td>
+                </tr>
+                <tr>
+                    <td>10007</td>
+                    <td>08 MM TMT BAR</td>
+                    <td>0</td>
+                    <td>0.850</td>
+                    <td>45300.00</td>
+                    <td>38505.00</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>6931.00</td>
+                </tr>
+                <tr>
+                    <td>10007</td>
+                    <td>08 MM TMT BAR</td>
+                    <td>0</td>
+                    <td>0.850</td>
+                    <td>45300.00</td>
+                    <td>38505.00</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>6931.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row col-12 mt-2">
+        <div class="col-3">
+            <div class="row">
+                <div class="col-4">
+                    Total Pcs
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control form-control-sm w-50" placeholder="Enter Total Pcs">
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-4 text-end">
+                    Total Quantity
+                </div>
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="text" class="form-control form-control-sm w-75" placeholder="Enter Total Quantity">
+                        </div>
+                        <div class="col-6">
+                            <input type="button" class="btn-sm btn-primary w-50" value="Attachments">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="row">
+                <div class="col-4 text-end">
+                    Sub Total
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control form-control-sm" placeholder="Enter Sub Total">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row col-12 mt-2">
+        <div class="col-4">
+            <div class="row">
+                <div class="col-4">
+                    Adjust Advance
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control form-control-sm" placeholder="Enter Adjust Advance">
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="row">
+                <div class="col-4 text-end">
+                    GSTR 2A Status
+                </div>
+                <div class="col-8">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="row">
+                <div class="col-4 text-end">
+                    Add/Less
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control form-control-sm" placeholder="Enter Add/Less">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row col-12 mt-2">
+        <div class="col-4">
+            <div class="row">
+                <div class="col-4">
+                    Transport
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control form-control-sm" placeholder="Enter Transport">
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="row">
+                <div class="col-4 text-end">
+                    Input Dt.
+                </div>
+                <div class="col-8">
+                    <div class="row">
+                        <input type="text" class="form-control form-control-sm w-75" placeholder="Enter Input Dt.">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="row">
+                <div class="col-4 text-end">
+                    C.GST
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control form-control-sm" placeholder="Enter C.GST">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row col-12 mt-2">
+        <div class="col-4">
+            <div class="row">
+                <div class="col-4">
+                    Broker
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control form-control-sm" placeholder="Enter Broker">
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="row">
+                <div class="col-4 text-end">
+                    Due Date
+                </div>
+                <div class="col-8">
+                    <div class="row">
+                        <input type="text" class="form-control form-control-sm w-75" placeholder="Enter Due Date">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="row">
+                <div class="col-4 text-end">
+                    S.GST
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control form-control-sm" placeholder="Enter S.GST">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row col-12 mt-2">
+        <div class="col-4">
+            <div class="row">
+                <div class="col-4">
+                    Tds 194Q @
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control form-control-sm">
+                </div>                
+                <div class="col-4">
+                    <input type="text" class="form-control form-control-sm">
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="row">
+                <div class="col-4 text-end">
+                    GR No.
+                </div>
+                <div class="col-8">
+                    <div class="row">
+                        <input type="text" class="form-control form-control-sm w-75" placeholder="Enter GR No.">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="row">
+                <div class="col-4 text-end">
+                    I.GST
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control form-control-sm" placeholder="Enter I.GST">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row col-12 mt-2">
+        <div class="col-4">
+            <div class="row">
+                <div class="col-4">
+                    Tcs 206C(1H)
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control form-control-sm">
+                </div>                
+                <div class="col-4">
+                    <input type="text" class="form-control form-control-sm">
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="row">
+                <div class="col-2 text-end">
+                    Vehicle
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <input type="text" class="form-control form-control-sm" placeholder="Enter Vehicle">
+                    </div>
+                </div>
+                <div class="col-2 text-end">
+                    Cess. 1
+                </div>
+                <div class="col-2">
+                    <div class="row">
+                        <input type="text" class="form-control form-control-sm" placeholder="Enter Cess. 1">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="row">
+                <div class="col-4 text-end">
+                    Expenses
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control form-control-sm" placeholder="Enter Expenses">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row col-12 mt-2">
+        <div class="col-4">
+            <div class="row">
+                <div class="col-4">
+                    Tcs @
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control form-control-sm">
+                </div>                
+                <div class="col-4">
+                    <input type="text" class="form-control form-control-sm">
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="row">
+                <div class="col-2 text-end">
+                    Total GST
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <input type="text" class="form-control form-control-sm" placeholder="Enter Total GST">
+                    </div>
+                </div>
+                <div class="col-2 text-end">
+                    Cess. 2
+                </div>
+                <div class="col-2">
+                    <div class="row">
+                        <input type="text" class="form-control form-control-sm" placeholder="Enter Cess. 2">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="row">
+                <div class="col-4 text-end">
+                    Grand Total
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control form-control-sm" placeholder="Enter Grand Total">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row col-12 p-4">
+        <div class="col-8"></div>
+        <div class="col-4 ps-2 pe-0 text-end">
+            <input type="button" class="btn btn-primary w-25 me-4" value="Save">
+            <input type="button" class="btn btn-primary w-25" value="Reset">
+        </div>
+    </div>
+</div>

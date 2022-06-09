@@ -16,6 +16,8 @@ import { AccountHeadListComponent } from './component/accounthead/accounthead-li
 import { AccountHeadUpdateComponent } from './component/accounthead/accounthead-update/accounthead-update.component';
 import { ProductAddComponent } from './component/product/product-add/product-add.component';
 import { EntityAddComponent } from './component/entity/entity-add/entity-add.component';
+import { PurchaseorderAddComponent } from './component/invoice/purchaseorder/purchaseorder-add/purchaseorder-add.component';
+import { PurchaseorderListComponent } from './component/invoice/purchaseorder/purchaseorder-list/purchaseorder-list.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { EntityAddComponent } from './component/entity/entity-add/entity-add.com
     AccountHeadListComponent,
     ProductAddComponent,
     EntityAddComponent,
+    PurchaseorderAddComponent,
+    PurchaseorderListComponent,
   ],
   imports: [
     BrowserModule,

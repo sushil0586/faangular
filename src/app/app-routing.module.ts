@@ -11,8 +11,12 @@ import { AccountHeadUpdateComponent } from './component/accounthead/accounthead-
 import { AccountHeadAddComponent } from './component/accounthead/accounthead-add/accounthead-add.component';
 import { ProductAddComponent } from './component/product/product-add/product-add.component';
 import { EntityAddComponent } from './component/entity/entity-add/entity-add.component';
+import { PurchaseorderAddComponent } from './component/invoice/purchaseorder/purchaseorder-add/purchaseorder-add.component';
+import { PurchaseorderListComponent } from './component/invoice/purchaseorder/purchaseorder-list/purchaseorder-list.component';
 
 const routes: Routes = [
+  { path: 'purchaseorder-list', component: PurchaseorderListComponent, canActivate: [AuthGuard] },
+  { path: 'purchaseorder-add', component: PurchaseorderAddComponent, canActivate: [AuthGuard] },
   { path: 'updateaccount/:accountId', component: AccountHeadUpdateComponent, canActivate: [AuthGuard] },
   { path: 'account-list', component: AccountHeadListComponent, canActivate: [AuthGuard] },
   { path: 'account-add', component: AccountHeadAddComponent, canActivate: [AuthGuard] },
