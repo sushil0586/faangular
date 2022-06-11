@@ -32,7 +32,7 @@ export type ProductModel = {
   openingstockboxqty: number;
 };
 
-// export type AccountHeadDropDownModel = {
-//   accountHeadId: number;
-//   accountHeadName: string;
-// };
+export type ProductCategoryList = {
+  id: number;
+  pcategoryname: string;
+};

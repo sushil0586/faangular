@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, tap, throwError } from 'rxjs';
-import { ProductModel, Product } from 'src/app/model/product';
+import { ProductModel, Product,ProductCategoryList } from 'src/app/model/product';
 import { CommonService } from '../common/common.service';
 import { ConfigService } from '../config/config.service';
 
@@ -60,6 +60,14 @@ public updateAccount(productModel: ProductModel, productId: number | undefined):
     catchError(error => {
       return throwError(error);
     }));
+}
+
+
+public getProductCategoryList(): Observable<ProductCategoryList[]> {
+  return this.httpClient.get<ProductCategoryList[]>(this.configService.getProductCategoryUrl, this.httpOptions).pipe(
+    tap(_ => this.commonService.log('fetched accounts head')),
+    catchError(this.commonService.handleError<ProductCategoryList[]>('getproducts', []))
+  );
 }
 
 

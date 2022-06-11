@@ -25,7 +25,13 @@
     </div>
     <div class="col-4">
         <label class="text-bold">Product Category</label>
-        <input type="text" class="form-control w-75" placeholder="Product Category" [(ngModel)]="productcategory"   maxlength="10">
+        <select [(ngModel)]="productcategory" class="form-select w-75">
+            <option [ngValue]=" ">Select</option>
+            <option [ngValue]="ProductCategory.id"
+                *ngFor="let ProductCategory of ProductCategoryDDList">
+                {{ProductCategory.pcategoryname}}
+            </option>
+        </select>
     </div>
     <div class="col-4 pb-4">
         <label class="text-bold">Purchase Rate</label>

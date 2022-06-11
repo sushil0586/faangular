@@ -6,12 +6,13 @@ export type Entity = {
   phoneoffice: number;
   phoneResidence: number;
   panno:string;  
-  tdsCircle: number;
-  unitType: string;
+  tds:string;  
+  tdsCircle: string;
+  unitType: number;
   Country: number;
-  state:string;
+  state:number;
   district: number;
-  city:string
+  city:number
 };
 
 export type EntityModel = {
@@ -21,12 +22,13 @@ export type EntityModel = {
   phoneoffice: number;
   phoneResidence: number;
   panno:string;  
-  tdsCircle: number;
-  unitType: string;
+  tds:string;  
+  tdsCircle: string;
+  unitType: number;
   Country: number;
-  state:string;
+  state:number;
   district: number;
-  city:string
+  city:number
 };
 
 // export type AccountHeadDropDownModel = {
