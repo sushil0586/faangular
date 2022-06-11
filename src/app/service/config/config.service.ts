@@ -65,4 +65,16 @@ export class ConfigService {
     return this.getConfigData().ApiUrl+'geography/city';
   }
 
+  public get getVoucherNumberUrl():string {
+    return this.getConfigData().ApiUrl+'invoice/voucherno?entity=';
+  }
+
+  public get getSupplierListUrl():string {
+    return this.getConfigData().ApiUrl+'financial/account?entity=';
+  }
+
+  public get getCommonProductListUrl():string {
+    return this.getConfigData().ApiUrl+'inventory/product?entity=';
+  }
+
 }
