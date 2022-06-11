@@ -6,8 +6,11 @@
                 <div class="col-1">
                     Date
                 </div>
-                <div class="col-11">
-                    <input type="text" class="form-control form-control-sm w-50" [(ngModel)]="newDate">
+                <div class="col-4">
+                    <p-calendar dateFormat="mm-dd-yy" [(ngModel)]="newDate" (onSelect)="showDayName()"></p-calendar>
+                </div>
+                <div class="col-3">
+                    {{dayName}}
                 </div>
             </div>
         </div>
@@ -25,7 +28,7 @@
                     V.No
                 </div>
                 <div class="col-3">
-                    <input type="text" class="form-control form-control-sm">
+                    <input type="text" class="form-control form-control-sm" [(ngModel)]="voucherNumber" readonly>
                 </div>
                 <div class="col-8">
                     <input type="text" class="form-control form-control-sm w-25">
@@ -41,7 +44,13 @@
                     Supplier
                 </div>
                 <div class="col-9">
-                    <input type="text" class="form-control form-control-sm w-100" placeholder="Enter Supplier">
+                    <select class="form-select form-select-sm" [(ngModel)]="supplierId"
+                        (change)='displaySupplier(supplierId)'>
+                        <option value="0">Select</option>
+                        <option [ngValue]="supplier.id" *ngFor="let supplier of supplierList">
+                            {{supplier.accountname}}
+                        </option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -86,7 +95,7 @@
                     Bill Date
                 </div>
                 <div class="col-10">
-                    <input type="text" class="form-control form-control-sm w-50" placeholder="Enter Bill Date">
+                    <p-calendar dateFormat="mm-dd-yy" [(ngModel)]="billDate"></p-calendar>
                 </div>
             </div>
         </div>
@@ -108,7 +117,8 @@
                     GST No.
                 </div>
                 <div class="col-9">
-                    <input type="text" class="form-control form-control-sm w-100" placeholder="Enter GST No.">
+                    <input type="text" class="form-control form-control-sm w-100" placeholder="Enter GST No."
+                        [(ngModel)]="gstNumber">
                 </div>
             </div>
         </div>
@@ -147,7 +157,9 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Product Name</th>
+                    <th scope="col">Product Name
+                        <i class="pi pi-plus" (click)="showDialog()"></i>
+                    </th>
                     <th scope="col">Description</th>
                     <th scope="col">Pcs</th>
                     <th scope="col">Quantity</th>
@@ -230,7 +242,8 @@
                 <div class="col-8">
                     <div class="row">
                         <div class="col-6">
-                            <input type="text" class="form-control form-control-sm w-75" placeholder="Enter Total Quantity">
+                            <input type="text" class="form-control form-control-sm w-75"
+                                placeholder="Enter Total Quantity">
                         </div>
                         <div class="col-6">
                             <input type="button" class="btn-sm btn-primary w-50" value="Attachments">
@@ -300,7 +313,7 @@
                 </div>
                 <div class="col-8">
                     <div class="row">
-                        <input type="text" class="form-control form-control-sm w-75" placeholder="Enter Input Dt.">
+                        <p-calendar dateFormat="mm-dd-yy" [(ngModel)]="inputDtDate"></p-calendar>
                     </div>
                 </div>
             </div>
@@ -334,7 +347,7 @@
                 </div>
                 <div class="col-8">
                     <div class="row">
-                        <input type="text" class="form-control form-control-sm w-75" placeholder="Enter Due Date">
+                        <p-calendar dateFormat="mm-dd-yy" [(ngModel)]="dueDate"></p-calendar>
                     </div>
                 </div>
             </div>
@@ -358,7 +371,7 @@
                 </div>
                 <div class="col-4">
                     <input type="text" class="form-control form-control-sm">
-                </div>                
+                </div>
                 <div class="col-4">
                     <input type="text" class="form-control form-control-sm">
                 </div>
@@ -395,7 +408,7 @@
                 </div>
                 <div class="col-4">
                     <input type="text" class="form-control form-control-sm">
-                </div>                
+                </div>
                 <div class="col-4">
                     <input type="text" class="form-control form-control-sm">
                 </div>
@@ -440,7 +453,7 @@
                 </div>
                 <div class="col-4">
                     <input type="text" class="form-control form-control-sm">
-                </div>                
+                </div>
                 <div class="col-4">
                     <input type="text" class="form-control form-control-sm">
                 </div>
@@ -485,3 +498,27 @@
         </div>
     </div>
 </div>
+<p-dialog header="Add Product" [(visible)]="display">
+    <div class="row">
+        <div class="col-6">
+            <label class="text-bold">Product List</label>
+        </div>
+        <div class="col-6">
+            <select [(ngModel)]="productId" class="form-select w-75">
+                <option value="0">Select</option>
+                <option [ngValue]="product.id"
+                    *ngFor="let product of productList">
+                    {{product.productname}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="row m-2">
+        <div class="col-6">
+            <input type="button" class="btn btn-primary" value="Save">
+        </div>
+        <div class="col-6">
+            <input type="button" class="btn btn-primary" value="Cancel">
+        </div>
+    </div>
+</p-dialog>

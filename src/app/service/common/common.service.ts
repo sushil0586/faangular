@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
@@ -7,7 +8,18 @@ import { Observable, of } from 'rxjs';
 
 export class CommonService {
 
-  constructor() { }
+  public httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
+  constructor() {
+    const token = sessionStorage.getItem('a-token');
+    if (token) {
+      this.httpOptions = {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` })
+      };
+    }
+  }
 
   public handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

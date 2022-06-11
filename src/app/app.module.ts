@@ -18,6 +18,8 @@ import { ProductAddComponent } from './component/product/product-add/product-add
 import { EntityAddComponent } from './component/entity/entity-add/entity-add.component';
 import { PurchaseorderAddComponent } from './component/invoice/purchaseorder/purchaseorder-add/purchaseorder-add.component';
 import { PurchaseorderListComponent } from './component/invoice/purchaseorder/purchaseorder-list/purchaseorder-list.component';
+import {CalendarModule} from 'primeng/calendar';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { PurchaseorderListComponent } from './component/invoice/purchaseorder/pu
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    CalendarModule,
+    DialogModule,
     ToastrModule.forRoot()
   ],
   providers: [],
