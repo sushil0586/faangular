@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductModel, Product } from 'src/app/model/product';
+import { ProductModel, Product,ProductCategoryList } from 'src/app/model/product';
 import { ProductService } from 'src/app/service/product/product.service';
 import { NotificationService } from 'src/app/service/notification/notification.service';
 
@@ -28,10 +28,12 @@ export class ProductAddComponent implements OnInit {
   public cgstcess!: number;
   public sgst!: number;
   public sgstcess!: number;
+  public ProductCategoryDDList: Array<ProductCategoryList> = [];
 
   constructor(private productservice: ProductService, private notificationService: NotificationService) { }
 
   ngOnInit(): void {
+    this.bindProductCategoryList();
   }
 
   addproduct() {
@@ -71,5 +73,20 @@ export class ProductAddComponent implements OnInit {
     this.productname = '';
     this.productdesc = '';
  }
+
+ bindProductCategoryList(): void {
+  this.productservice.getProductCategoryList()
+    .subscribe(data => {
+      this.ProductCategoryDDList = data;
+      console.log(data)
+      // this.ProductCategoryDDList.forEach(element => {
+      //   let accountHeadDropDownModel: ProductCategoryList = {
+      //     id: element.id,
+      //     pcategoryname: element.pcategoryname,
+      //   }
+      //   this.ProductCategoryDDList.push(accountHeadDropDownModel);
+      // });
+    });
+}
 
 }

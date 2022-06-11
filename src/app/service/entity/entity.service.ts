@@ -5,6 +5,7 @@ import { Entity, EntityModel } from 'src/app/model/entity';
 import { CommonService } from '../common/common.service';
 import { ConfigService } from '../config/config.service';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -27,7 +28,7 @@ constructor(private httpClient: HttpClient,
 
 
 public addEntity(entityModel: EntityModel): Observable<Entity> {
-  return this.httpClient.post<Entity>(this.configService.getProductUrl, entityModel, this.httpOptions).pipe(
+  return this.httpClient.post<Entity>(this.configService.getEntityUrl, entityModel, this.httpOptions).pipe(
     catchError(error => {
       return throwError(error);
     }));
@@ -35,7 +36,7 @@ public addEntity(entityModel: EntityModel): Observable<Entity> {
 
 
 public updateEntity(entityModel: EntityModel, entityId: number | undefined): Observable<Entity> {
-  const url = `${this.configService.getProductUrl}/${entityId}`;
+  const url = `${this.configService.getEntityUrl}/${entityId}`;
 
   return this.httpClient.put<Entity>(url, entityModel, this.httpOptions).pipe(
     catchError(error => {

@@ -3,73 +3,96 @@
     <h1>Add Entity </h1>
 </div>
 
-<div class="row col-12 ps-4">
+
+<div class="row ms-4 ps-4">
     <div class="col-4 pb-4">
         <label class="text-bold">Entity Name</label>
-        <input type="text" class="form-control w-75" placeholder="Entity Name" maxlength="50">
+        <input type="text" class="form-control w-75" placeholder="Entity Name" [(ngModel)]="entityName"  maxlength="50">
     </div>
     <div class="col-4">
         <label class="text-bold">Address</label>
-        <input type="text" class="form-control w-75" placeholder="Address" maxlength="10">
+        <input type="text" class="form-control w-75" placeholder="Address" [(ngModel)]="address" maxlength="10">
     </div>
     <div class="col-4 pb-4">
         <label class="text-bold">Contact Person</label>
-        <input type="text" class="form-control w-75" placeholder="Contact Person" maxlength="50">
+        <input type="text" class="form-control w-75" placeholder="Contact Person" [(ngModel)]="ownerName"  maxlength="50">
     </div>
     <div class="col-4">
         <label class="text-bold">Phone Office</label>
-        <input type="text" class="form-control w-75" placeholder="Phone Office" maxlength="10">
+        <input type="text" class="form-control w-75" placeholder="Phone Office" [(ngModel)]="phoneoffice"  maxlength="10">
     </div>
     <div class="col-4 pb-4">
         <label class="text-bold">Phone Residence</label>
-        <input type="text" class="form-control w-75" placeholder="Phone Residence" maxlength="50">
-    </div>
-    <div class="col-4">
-        <label class="text-bold">Product Category</label>
-        <input type="text" class="form-control w-75" placeholder="Product Category" maxlength="10">
+        <input type="text" class="form-control w-75" placeholder="Phone Residence" [(ngModel)]="phoneResidence"  maxlength="50">
     </div>
     <div class="col-4 pb-4">
         <label class="text-bold">Pan No</label>
-        <input type="text" class="form-control w-75" placeholder="Pan No" maxlength="50">
+        <input type="text" class="form-control w-75" placeholder="Pan No" [(ngModel)]="panno"  maxlength="50">
     </div>
     <div class="col-4">
         <label class="text-bold">TDS</label>
-        <input type="text" class="form-control w-75" placeholder="TDS" maxlength="10">
+        <input type="text" class="form-control w-75" placeholder="TDS" [(ngModel)]="tds"  maxlength="10">
     </div>
     <div class="col-4 pb-4">
         <label class="text-bold">Tds Circle</label>
-        <input type="text" class="form-control w-75" placeholder="Tds Circle" maxlength="50">
+        <input type="text" class="form-control w-75" placeholder="Tds Circle" [(ngModel)]="tdsCircle"  maxlength="50">
     </div>
     <div class="col-4">
         <label class="text-bold">Unit Type</label>
-        <input type="text" class="form-control w-75" placeholder="Unit Type" maxlength="10">
+        <input type="text" class="form-control w-75" placeholder="Unit Type"  [(ngModel)]="unitType" maxlength="10">
     </div>
     <div class="col-4 pb-4">
         <label class="text-bold">Country</label>
-        <input type="text" class="form-control w-75" placeholder="Country" maxlength="50">
-    </div>
-    <div class="col-4">
-        <label class="text-bold">Country</label>
-        <input type="text" class="form-control w-75" placeholder="Country" maxlength="10">
+        <!-- <input type="text" class="form-control w-75" placeholder="Country" [(ngModel)]="Country"  maxlength="50"> -->
+        <select [(ngModel)]="Country"    (ngModelChange)="bindStateList($event)"
+        class="form-select w-75"  >
+           
+
+            <option *ngFor="let Country of CountryList" [value]="Country.id"> {{Country.countryname}}</option>
+            
+        </select>
     </div>
     <div class="col-4 pb-4">
         <label class="text-bold">State</label>
-        <input type="text" class="form-control w-75" placeholder="State" maxlength="50">
+        <!-- <input type="text" class="form-control w-75" placeholder="State" [(ngModel)]="state"  maxlength="50"> -->
+        
+
+        <select [(ngModel)]="state"    (ngModelChange)="bindDistrictList($event)"
+        class="form-select w-75"  >
+           
+
+            <option *ngFor="let state of stateList" [value]="state.id"> {{state.statename}}</option>
+            
+        </select>
     </div>
     <div class="col-4">
         <label class="text-bold">District</label>
-        <input type="text" class="form-control w-75" placeholder="District" maxlength="10">
+        <!-- <input type="text" class="form-control w-75" placeholder="District" [(ngModel)]="district" maxlength="10"> -->
+        <select [(ngModel)]="district"  (ngModelChange)="bindCityList($event)" class="form-select w-75">
+            <option [ngValue]=" ">Select</option>
+            <option [ngValue]="district.id"
+                *ngFor="let district of districtList">
+                {{district.districtname}}
+            </option>
+        </select>
     </div>
     <div class="col-4 pb-4">
         <label class="text-bold">City</label>
-        <input type="text" class="form-control w-75" placeholder="City" maxlength="50">
+        <!-- <input type="text" class="form-control w-75" placeholder="City" [(ngModel)]="city"  maxlength="50"> -->
+        <select [(ngModel)]="city" value = 1 class="form-select w-75">
+            <option [ngValue]=" ">Select</option>
+            <option [ngValue]="city.id"
+                *ngFor="let city of cityList">
+                {{city.citycode}}
+            </option>
+        </select>
     </div>
-
+   
 </div>
 <div class="row col-12">
     <div class="col-12"></div>
     <div class="col-8">
-        <input type="button" class="btn btn-primary w-25 me-4" value="Save">
-        <input type="button" class="btn btn-primary w-25" value="Reset">
+        <input type="button" class="btn btn-primary w-25 me-4" (click)="addEntity()"  value="Save">
+        <input type="button" class="btn btn-primary w-25"   value="Reset">
     </div>
 </div>
